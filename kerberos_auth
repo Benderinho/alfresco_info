@@ -1,0 +1,12 @@
+The documentation from Alfresco about configuring Kerberos authentication is actually pretty good, except for two things:
+https://docs.alfresco.com/5.2/tasks/kerberos-AD-config.html
+
+* you need to install kerberos packages, if you are running Alfresco on Linux.
+** On Ubuntu I needed to install the package (apt install) krb5-user
+** when you copied the keytabs to your Alfresco Server, you can check if it is working with commands like
+*** klist -t -k /path/to/your/keytab
+*** kinit -V -k -t /path/to/your/keytab HTTP/host.domain
+*** klist -e
+
+* at some point in the configuration files, they mix HTTP in capital letters and http in lower case letters - just stay with one possibility all the time and replace whenever they deriaviate from your choice.
+
